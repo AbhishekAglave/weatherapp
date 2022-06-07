@@ -3,7 +3,7 @@ import './weatherapp.css';
 
 function WeatherApp() {
     const [city, setCity] = useState('');
-    const [search, setSearch] = useState('khamgaon');
+    const [search, setSearch] = useState('');
     
     useEffect(()=>{
         const getCity = async () =>{
