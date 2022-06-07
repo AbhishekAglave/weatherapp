@@ -2,8 +2,19 @@ import React, { useEffect, useState } from "react";
 import './weatherapp.css';
 
 function WeatherApp() {
-    const [city, setCity] = useState();
+    const [city, setCity] = useState('');
     const [search, setSearch] = useState('khamgaon');
+    
+    useEffect(()=>{
+        const getCity = async () =>{
+            const request = await fetch("https://ipinfo.io/json?token=a82a6dc5325fa8")
+            const json = await request.json()
+            console.log(json.city);
+            setSearch(json.city);
+        }
+        getCity();
+    },[]);
+
 
     useEffect(() => {
         const fetchApi = async () => {
@@ -14,7 +25,7 @@ function WeatherApp() {
             if(resJson.cod===200){
                 setCity(resJson);
             }else{
-                setCity()
+                setCity('')
             }
         };
         fetchApi();
