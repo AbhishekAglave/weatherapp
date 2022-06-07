@@ -9,7 +9,7 @@ function WeatherApp() {
         const getCity = async () =>{
             const request = await fetch("https://ipinfo.io/json?token=a82a6dc5325fa8")
             const json = await request.json()
-            console.log(json.city);
+            // console.log(json.city);
             setSearch(json.city);
         }
         getCity();
